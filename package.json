@@ -18,6 +18,7 @@
     "tav": ">=0.1.0"
   }
 , "engines": ["node >=0.2.0"]
+, "main": "./index"
 , "bin": {
     "shorturl": "./shorturl"
   }
