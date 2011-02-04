@@ -1,0 +1,24 @@
+{ "name": "shorturl"
+, "version": "v0.0.1"
+, "description": "URL shortener client API"
+, "keywords": ["shorturl", "shortlink", "bit.ly", "goo.gl", "is.gd"]
+, "author": "Jeff Waugh <jdub@bethesignal.org>"
+, "homepage": "https://github.com/jdub/node-shorturl"
+, "bugs": { "url": "https://github.com/jdub/node-shorturl/issues" }
+, "licenses":
+  [ { "type": "MIT"
+    , "url": "https://github.com/jdub/node-shorturl/raw/master/LICENSE"
+  } ]
+, "repository":
+  { "type": "git"
+  , "url": "https://github.com/jdub/node-shorturl.git"
+  }
+, "dependencies":
+  { "request": ">=1.2.0",
+    "tav": ">=0.1.0"
+  }
+, "engines": ["node >=0.2.0"]
+, "bin": {
+    "shorturl": "./shorturl"
+  }
+}

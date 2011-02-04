@@ -1,0 +1,71 @@
+#!/usr/bin/env node
+try {
+	var shorturl = require('shorturl');
+} catch(e) {
+	var shorturl = require('./index');
+}
+
+var opts = require('tav').set({
+		service: {
+			note: "URL shortening service (such as: bit.ly, goo.gl, is.gd)",
+			value: 'is.gd'
+		},
+		user: {
+			note: "User name for services which require it",
+			value: null
+		},
+		key: {
+			note: "API key for services which require it",
+			value: null
+		},
+		debug: {
+			note: "Display troubleshooting information",
+			value: false
+		}
+	}, "Usage: shorturl [options] <longurl>", true),
+	args = opts.args,
+	longurl = args[0],
+	params = {};
+
+// Just the one valid URL, please
+if ( args.length != 1 || !longurl.match(/^https?:/) ) {
+	console.log("Usage: shorturl [options] <longurl>");
+	process.exit(1);
+}
+
+// Service-specific parameter building
+switch ( opts.service ) {
+	case 'bit.ly':
+		params.login = opts.user;
+		params.apiKey = opts.key;
+		break;
+	case 'goo.gl':
+		params.key = opts.key;
+		break;
+}
+
+// DEBUG
+if ( opts.debug ) {
+	console.log('\nargv[]: ' + require('util').inspect({
+		opts: opts,
+		args: args
+	}));
+	console.log('\nparams: '+require('util').inspect(params));
+}
+
+shorturl(longurl, opts.service, params, function(result) {
+	// DEBUG
+	if ( opts.debug ) {
+		console.log('\nresult: ' + require('util').inspect(arguments));
+		return;
+	}
+
+	if ( arguments[0] instanceof Error ) {
+		console.log(arguments[0].message);
+		process.exit(1);
+	} else {
+		console.log(result);
+	}
+});
+
+/* vim: set ft=javascript: */
