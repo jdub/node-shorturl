@@ -31,6 +31,13 @@ By default it will shorten URLs with is.gd, but you can choose an alternative se
 		console.log(result);
 	});
 
+Simple services can be described using a string substitution link. Pass the entire link as the service name; '%@' will be replaced with your URL:
+
+	var arsehat = 'http://arseh.at/api.php?action=shorturl&format=simple&url=%@';
+	shorturl('http://bethesignal.org/', arsehat, function(result) {
+		console.log(result);
+	});
+
 ## Command line script
 
 	$ shorturl
@@ -38,5 +45,9 @@ By default it will shorten URLs with is.gd, but you can choose an alternative se
 
 	$ shorturl --service=goo.gl --key=STATE_YOUR_ID_NUMBER http://bethesignal.org/
 	http://goo.gl/dgTLo
+
+	$ ARSEHAT="http://arseh.at/api.php?action=shorturl&format=simple&url=%@"
+	$ shorturl --service=$ARSEHAT https://github.com/jdub/node-shorturl
+	http://arseh.at/3yd
 
 Display the built-in help with `shorten --help`.
