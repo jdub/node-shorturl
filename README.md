@@ -1,5 +1,5 @@
-URL shortener client API library for node.js
-============================================
+Simple URL shortener client library for node.js
+===============================================
 
 [shorturl](https://github.com/jdub/node-shorturl) is a simple, asynchronous client library for common URL shortener services. It currently supports: arseh.at, bit.ly, goo.gl, is.gd, v.gd and string substitution links (with %@).
 

@@ -1,6 +1,6 @@
 { "name": "shorturl"
 , "version": "v0.0.1"
-, "description": "URL shortener client API"
+, "description": "Simple URL shortener client library"
 , "keywords": ["shorturl", "shortlink", "bit.ly", "goo.gl", "is.gd"]
 , "author": "Jeff Waugh <jdub@bethesignal.org>"
 , "homepage": "https://github.com/jdub/node-shorturl"
