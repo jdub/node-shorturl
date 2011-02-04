@@ -1,6 +1,5 @@
 var VERSION = '0.0.1',
 	request = require('request'),
-	url = require('url'),
 	querystring = require('querystring').stringify;
 
 function shorturl(longurl, shorter, params, callback) {
@@ -123,7 +122,7 @@ var shorteners = {
 			return;
 		}
 
-		var uri = url.parse(params.url).href.replace('%@', escape(longurl));
+		var uri = params.url.replace('%@', escape(longurl));
 		request({uri:uri}, function(error, response, body) {
 			if ( response.statusCode === 200 ) {
 				callback(body);
