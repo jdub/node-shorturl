@@ -1,11 +1,10 @@
 Simple URL shortener client library for node.js
 ===============================================
 
-[shorturl](https://github.com/jdub/node-shorturl) is a simple, asynchronous client library for common URL shortener services. It currently supports: arseh.at, bit.ly, goo.gl, is.gd, v.gd and string substitution links (with %@).
+[shorturl](https://github.com/jdub/node-shorturl) is a simple, asynchronous client library for common URL shortener services. It currently supports: arseh.at, bit.ly, goo.gl, is.gd, v.gd and string substitution links (with %@). It includes a perky little script for shortening URLs on the command line, also named [shorturl](https://github.com/jdub/node-shorturl/blob/master/shorturl).
 
 If you [need to go deeper](http://www.imdb.com/title/tt1375666/), try the more complete client libraries for individual services such as [node-bitly](https://github.com/tanepiper/node-bitly) or [node-googl](https://github.com/ukstv/node-googl).
 
-It includes a perky little script for shortening URLs on the command line, also named [shorturl](https://github.com/jdub/node-shorturl/blob/master/shorturl).
 
 ## Requirements
 
@@ -50,4 +49,4 @@ Simple services can be described using a string substitution link. Pass the enti
 	$ shorturl --service=$ARSEHAT https://github.com/jdub/node-shorturl
 	http://arseh.at/3yd
 
-Display the built-in help with `shorten --help`.
+Display the built-in command line documentation with `shorten --help`.
