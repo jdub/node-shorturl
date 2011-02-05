@@ -1,4 +1,4 @@
-var VERSION = '0.0.1',
+var VERSION = '0.0.2',
 	request = require('request'),
 	querystring = require('querystring').stringify;
 
