@@ -64,10 +64,11 @@ var shorteners = {
 					if ( json.data && json.data.url )
 						callback(json.data.url, json);
 				} catch(e) {
-					callback(e, arguments);
+					// FIXME: e vs. error? kinda stupid
+					callback(e, error, response, body);
 				}
 			} else {
-				callback(arguments);
+				callback.apply(this, arguments);
 			}
 		});
 	},
@@ -84,10 +85,11 @@ var shorteners = {
 					if ( json.id )
 						callback(json.id, json);
 				} catch(e) {
-					callback(e, arguments);
+					// FIXME: e vs. error? kinda stupid
+					callback(e, error, response, body);
 				}
 			} else {
-				callback(arguments);
+				callback.apply(this, arguments);
 			}
 		});
 	},
@@ -106,7 +108,7 @@ var shorteners = {
 			if ( response && response.statusCode === 200 && body.substr(0, host.length) === host ) {
 				callback(body);
 			} else {
-				callback(arguments);
+				callback.apply(this, arguments);
 			}
 		});
 	},
@@ -127,7 +129,7 @@ var shorteners = {
 			if ( response && response.statusCode === 200 ) {
 				callback(body);
 			} else {
-				callback(arguments);
+				callback.apply(this, arguments);
 			}
 		});
 	}

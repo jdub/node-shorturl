@@ -61,7 +61,7 @@ shorturl(longurl, opts.service, params, function(result) {
 	}
 
 	if ( arguments[0] instanceof Error ) {
-		console.log(arguments[0].message);
+		console.log('Error: ' + arguments[0].message);
 		process.exit(1);
 	} else {
 		console.log(result);
