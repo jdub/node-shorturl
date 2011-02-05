@@ -58,7 +58,7 @@ var shorteners = {
 			format: 'json'
 		});
 		request({uri:uri}, function(error, response, body) {
-			if ( response.statusCode === 200 ) {
+			if ( response && response.statusCode === 200 ) {
 				try {
 					var json = JSON.parse(body);
 					if ( json.data && json.data.url )
@@ -78,7 +78,7 @@ var shorteners = {
 			method: 'POST',
 			json: {longUrl:longurl}
 		}, function(error, response, body) {
-			if ( response.statusCode === 200 ) {
+			if ( response && response.statusCode === 200 ) {
 				try {
 					var json = JSON.parse(body);
 					if ( json.id )
@@ -103,7 +103,7 @@ var shorteners = {
 			url: longurl
 		});
 		request({uri:uri}, function(error, response, body) {
-			if ( response.statusCode === 200 && body.substr(0, host.length) === host ) {
+			if ( response && response.statusCode === 200 && body.substr(0, host.length) === host ) {
 				callback(body);
 			} else {
 				callback(arguments);
@@ -124,7 +124,7 @@ var shorteners = {
 
 		var uri = params.url.replace('%@', escape(longurl));
 		request({uri:uri}, function(error, response, body) {
-			if ( response.statusCode === 200 ) {
+			if ( response && response.statusCode === 200 ) {
 				callback(body);
 			} else {
 				callback(arguments);
