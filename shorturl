@@ -60,8 +60,8 @@ shorturl(longurl, opts.service, params, function(result) {
 		return;
 	}
 
-	if ( arguments[0] instanceof Error ) {
-		console.log('Error: ' + arguments[0].message);
+	if ( result instanceof Error ) {
+		console.log('Error: ' + result.message);
 		process.exit(1);
 	} else {
 		console.log(result);
