@@ -51,7 +51,7 @@ var shorteners = {
 			return;
 		}
 
-		var uri = 'http://api.bit.ly/v3/shorten?' + querystring({
+		var uri = 'https://api-ssl.bit.ly/v3/shorten?' + querystring({
 			login: params.login || null,
 			apiKey: params.apiKey || null,
 			longUrl: longurl,
