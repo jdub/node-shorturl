@@ -68,7 +68,7 @@ var shorteners = {
 					callback(e, error, response, body);
 				}
 			} else {
-				callback.apply(this, arguments);
+				callback.call(arguments);
 			}
 		});
 	},
@@ -89,7 +89,7 @@ var shorteners = {
 					callback(e, error, response, body);
 				}
 			} else {
-				callback.apply(this, arguments);
+				callback.call(arguments);
 			}
 		});
 	},
@@ -108,7 +108,7 @@ var shorteners = {
 			if ( response && response.statusCode === 200 && body.substr(0, host.length) === host ) {
 				callback(body);
 			} else {
-				callback.apply(this, arguments);
+				callback.call(arguments);
 			}
 		});
 	},
@@ -129,7 +129,7 @@ var shorteners = {
 			if ( response && response.statusCode === 200 ) {
 				callback(body);
 			} else {
-				callback.apply(this, arguments);
+				callback.call(arguments);
 			}
 		});
 	}
