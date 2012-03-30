@@ -1,7 +1,7 @@
 { "name": "shorturl"
-, "version": "v0.0.2"
+, "version": "v0.0.3"
 , "description": "Simple URL shortener client library"
-, "keywords": ["shorturl", "shortlink", "bit.ly", "goo.gl", "is.gd"]
+, "keywords": ["shorturl", "shortlink", "bit.ly", "bitly", "goo.gl", "is.gd"]
 , "author": "Jeff Waugh <jdub@bethesignal.org>"
 , "homepage": "https://github.com/jdub/node-shorturl"
 , "bugs": { "url": "https://github.com/jdub/node-shorturl/issues" }
@@ -17,7 +17,7 @@
   { "request": ">=2.9.153",
     "optimist": ">=0.3.1"
   }
-, "engines": ["node >=0.2.0"]
+, "engines": ["node >=0.6.0"]
 , "main": "./index"
 , "bin": {
     "shorturl": "./shorturl"
