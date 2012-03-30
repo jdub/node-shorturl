@@ -5,33 +5,22 @@ try {
 	var shorturl = require('./index');
 }
 
-var opts = require('tav').set({
-		service: {
-			note: "URL shortening service (such as: bit.ly, goo.gl, is.gd)",
-			value: 'is.gd'
-		},
-		user: {
-			note: "User name for services which require it",
-			value: null
-		},
-		key: {
-			note: "API key for services which require it",
-			value: null
-		},
-		debug: {
-			note: "Display troubleshooting information",
-			value: false
-		}
-	}, "Usage: shorturl [options] <longurl>", true),
-	args = opts.args,
-	longurl = args[0],
+var opts = require('optimist')
+	.usage("Usage: shorturl [options] <longurl>")
+	.boolean('debug')
+	.describe('service', "URL shortening service (such as: bit.ly, goo.gl, is.gd)")
+	.describe('user', "User name for services which require it")
+	.describe('key', "API key for services which require it")
+	.describe('debug', "Display troubleshooting information")
+	.default('service', 'is.gd')
+	.default('debug', false)
+	.alias('d', 'debug')
+	.check(function(argv) {
+		return ( argv._.length == 1 && /^https?:/.test(argv._[0]) );
+	})
+	.argv,
+	longurl = opts._[0],
 	params = {};
-
-// Just the one valid URL, please
-if ( args.length != 1 || !longurl.match(/^https?:/) ) {
-	console.log("Usage: shorturl [options] <longurl>");
-	process.exit(1);
-}
 
 // Service-specific parameter building
 switch ( opts.service ) {
@@ -46,10 +35,7 @@ switch ( opts.service ) {
 
 // DEBUG
 if ( opts.debug ) {
-	console.log('\nargv[]: ' + require('util').inspect({
-		opts: opts,
-		args: args
-	}));
+	console.log('\nargv[]: ' + require('util').inspect(opts));
 	console.log('\nparams: '+require('util').inspect(params));
 }
 
