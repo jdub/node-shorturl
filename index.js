@@ -79,15 +79,8 @@ var shorteners = {
 			method: 'POST',
 			json: {longUrl:longurl}
 		}, function(error, response, body) {
-			if ( response && response.statusCode === 200 ) {
-				try {
-					var json = JSON.parse(body);
-					if ( json.id )
-						callback(json.id, json);
-				} catch(e) {
-					// FIXME: e vs. error? kinda stupid
-					callback(e, error, response, body);
-				}
+			if ( response && response.statusCode === 200 && body.id ) {
+				callback(body.id);
 			} else {
 				callback.call(arguments);
 			}
