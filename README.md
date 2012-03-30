@@ -10,9 +10,9 @@ If you [need to go deeper](http://www.imdb.com/title/tt1375666/), try the more c
 
 You can install node-shorturl and its dependencies with npm: `npm install shorturl`. Otherwise, manually install:
 
-- [node](http://nodejs.org/) 0.2+
-- [request](https://github.com/mikeal/request) 1.2+
-- [tav](https://github.com/akaspin/tav) 0.1.0
+- [node](http://nodejs.org/) 0.6+
+- [request](https://github.com/mikeal/request) 2.9+
+- [optimist](https://github.com/substack/node-optimist) 0.3.1
 
 ## Examples
 
